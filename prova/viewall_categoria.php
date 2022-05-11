@@ -28,7 +28,7 @@ while($f=  mysqli_fetch_assoc($qu)){
             <?php echo $f['nomeCategoria']?>
         </td>
         <td>
-            <a href="deletecategoria.php?idCategoria=<?php echo $f['idCategoria']?>"> remover</a>
+            <a href="deletecategoria.php?idCategoria=<?php echo $f['idCategoria']?>"> 🗑️remover🗑️</a>
         </td>
     </tr>
     <?php
