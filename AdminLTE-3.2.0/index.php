@@ -3,9 +3,11 @@
     include'../checklogin.php';
 
     $s="select*from reg where id='$_SESSION[id]'";
-    $a="SELECT COUNT(username) FROM reg;";
-    $qu= mysqli_query($con, $s, $a);
+    $a="SELECT COUNT(username)as A FROM reg;";
+    $qu= mysqli_query($con, $s);
+    $bu= mysqli_query($con, $a);
     $f=mysqli_fetch_assoc($qu);
+    $j=mysqli_fetch_assoc($bu);
     
 ?>
 
@@ -196,7 +198,9 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="<?php
+echo $f['image'];?>" width="100px" height="100px">
+</td>
         </div>
         <div class="info">
         <td>
@@ -891,8 +895,8 @@
             <div class="small-box bg-info">
               <div class="inner">
               <td>
-            
-            <?php echo $a;?>
+             
+            <?php echo $j["A"];?>
                         </td>
 
                 <p>Número de Usuários</p>
