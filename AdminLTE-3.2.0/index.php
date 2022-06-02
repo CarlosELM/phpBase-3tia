@@ -1,3 +1,14 @@
+<?php
+    include'../connect.php';
+    include'../checklogin.php';
+
+    $s="select*from reg where id='$_SESSION[id]'";
+    $a="SELECT COUNT(username) FROM reg;";
+    $qu= mysqli_query($con, $s, $a);
+    $f=mysqli_fetch_assoc($qu);
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,7 +199,10 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+        <td>
+            
+            <?php echo $f['name'];?>
+                        </td>
         </div>
       </div>
 
@@ -876,9 +890,12 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              <td>
+            
+            <?php echo $a;?>
+                        </td>
 
-                <p>New Orders</p>
+                <p>Número de Usuários</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
